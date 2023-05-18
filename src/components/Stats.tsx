@@ -14,21 +14,24 @@ export default function Stats() {
       <div className="relative h-96 w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-1/2 ">
         <Image
           fill
-          className="object-cover lg:rounded-r-[11%]"
+          className="object-cover lg:rounded-r-3xl"
           src={pic1}
           alt=""
         />
       </div>
-      <div className="mx-auto grid max-w-7xl lg:grid-cols-2">
+      <div className="mx-auto grid lg:grid-cols-2">
         <div className="px-6 pb-24 pt-16 sm:pb-32 sm:pt-20 lg:col-start-2 lg:px-8 lg:pt-32">
-          <div className="mx-auto max-w-2xl lg:mr-0 lg:max-w-lg">
-            <h2 className="text-base font-semibold leading-8 text-black">Our track record</h2>
+          <div className="mx-auto max-w-2xl lg:ml-16 lg:max-w-xl">
+            <h2 className="text-base font-semibold leading-8 text-black">
+              Sobre Iconika
+            </h2>
             <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-              Un estudio profesional a tu disposición
+              Gestión de modelos emergentes{" "}
+              <br />
+              <span className="mt-6 inline-block text-3xl sm:text-3xl">• Top #1 de Latinoamérica</span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste
-              dolor cupiditate blanditiis ratione.
+              Nuestro objetivo es proporcionar a nuestros modelos las herramientas y la asistencia necesarias para potenciar su carrera en la industria del contenido para adultos, al tiempo que les ayudamos a crear contenido de alta calidad y a construir una comunidad de seguidores leales.
             </p>
             <dl className="mt-16 grid max-w-xl grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 xl:mt-16">
               {stats.map((stat) => (

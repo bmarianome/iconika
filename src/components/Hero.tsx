@@ -34,7 +34,7 @@ export default function Hero() {
               />
               <div className="hidden sm:mt-12 sm:flex">
                 <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                  <span className="font-bold">Icónika</span> es la agencia de modelos emergentes <span className="font-bold">N°1</span> de Latinoamérica.{' '}
+                  <span className="font-bold">Iconika</span> es la agencia de modelos emergentes <span className="font-bold">N°1</span> de Latinoamérica.{' '}
                   <a href="#" className="whitespace-nowrap font-semibold ">
                     <span className="absolute inset-0" aria-hidden="true" />
                     Ver Más <span aria-hidden="true">&rarr;</span>
@@ -45,7 +45,7 @@ export default function Hero() {
                 Gestión de carreras profesionales en OnlyFans
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                <span className="font-bold">Icónika</span> es una agencia de representación de <span className="font-bold">modelos emergentes</span> en la industria del contenido para adultos.
+                <span className="font-bold">Iconika</span> es una agencia de representación de <span className="font-bold">modelos emergentes</span> en la industria del contenido para adultos.
               </p>
               <div className="mt-10 flex items-center gap-x-6">
                 <a

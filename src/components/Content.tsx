@@ -4,29 +4,41 @@ export default function Content() {
   return (
     <div className="relative isolate overflow-hidden px-6 py-24 sm:pb-0 sm:pt-24 lg:overflow-visible lg:px-0">
 
-      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+      <div className="absolute left-0 top-0 w-auto h-[14.5rem] z-10">
+        <svg className="h-full w-auto" width="1353" height="1104" viewBox="0 0 1353 1104" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M-0.00012207 1103.5V0H1352.5C1278.5 133 1213.5 431 807.999 480.5C545.999 516.5 452.5 553.5 316.5 658C191.07 754.378 39.5 1067 -0.00012207 1103.5Z" fill="black" />
+        </svg>
+      </div>
+
+      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-6">
         <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
             <div className="lg:max-w-lg">
-              <p className="text-base font-semibold leading-7 ">Tu carrera profesional</p>
+              <p className="text-base font-semibold leading-7 ">
+                Servicios para tu carrera
+              </p>
               <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
                 Un estudio profesional a tu disposición
               </h1>
               <p className="mt-6 text-xl leading-8 text-gray-900">
-                Icónika ofrece una solución integral para que puedas dedicarte a lo que más te gusta: <span className="font-bold">crear contenido</span>
+                <span className="font-bold">Iconika</span> ofrece un servicio <span className="font-bold">integral</span> para que puedas dedicarte a lo que más te gusta: <span className="font-bold">crear contenido</span>
               </p>
             </div>
           </div>
         </div>
-        <div className="-ml-12 -mt-12 px-12 lg:sticky lg:top-12 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-          <div className="relative w-[48rem] max-w-none bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[62rem] aspect-video rounded-3xl overflow-hidden">
+        <div className="-ml-12 -mt-12 px-12 lg:sticky lg:top-16 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+          <div className="relative w-[48rem] max-w-none bg-gray-900 ring-1 ring-gray-400/10 sm:w-[62rem] aspect-video rounded-3xl overflow-hidden">
             <video src="/content/vid3.mp4" className="w-full h-full object-cover" autoPlay playsInline muted loop></video>
           </div>
         </div>
         <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
-            <div className="max-w-xl text-base leading-7 text-gray-900 lg:max-w-lg">
-              <ul role="list" className="space-y-8 text-gray-900">
+            <div className="max-w-xl text-base leading-7 text-gray-900 lg:max-w-xl">
+
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+                • Nuestros servicios
+              </h2>
+              <ul role="list" className="mt-8 space-y-8 text-gray-900">
                 <li className="flex gap-x-3">
                   <div className="h-max w-max">
                     <svg className="mt-1 -ml-1 h-9 w-9  text-gray-900" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -38,39 +50,44 @@ export default function Content() {
                   </div>
                   <span>
                     <strong className="font-semibold text-gray-900">Only Fans & Redes sociales. </strong>
-                    Lorem ipsum, dolor sit amet
-                    consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate
-                    blanditiis ratione.
+                    <br />
+                    Creación y gestión de perfiles en redes sociales.
                   </span>
                 </li>
                 <li className="flex gap-x-3">
                   <VideoCameraIcon className="mt-1 h-8 w-8 flex-none " aria-hidden="true" />
                   <span>
                     <strong className="font-semibold text-gray-900">Estudio profesional. </strong>
-                    Anim aute id magna aliqua
-                    ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
+                    <br />
+                    Producción de contenido fotográfico y audiovisual de alta calidad.
                   </span>
                 </li>
                 <li className="flex gap-x-3">
                   <CurrencyDollarIcon className="mt-1 h-8 w-8 flex-none " aria-hidden="true" />
                   <span>
                     <strong className="font-semibold text-gray-900">Gestión de cartera y pagos. </strong>
-                    Ac tincidunt sapien
-                    vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.
+                    <br />
+                    Servicios de gestión financiera y asesoramiento para ayudar a nuestros modelos a mantener sus finanzas en orden y maximizar sus ingresos.
                   </span>
                 </li>
               </ul>
-              <p className="mt-8">
-                Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie auctor
-                fermentum dignissim. Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate et ultrices hac
-                adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem vel integer orci.
+
+              <h2 className="mt-8 text-3xl font-bold tracking-tight text-black">
+                • Del estudio a la cima
+              </h2>
+              <p className="mt-4">
+                En Iconika, valoramos la <span className='font-semibold'>honestidad, la transparencia y el compromiso</span> con 
+                nuestros modelos y con nuestra comunidad en línea.
+                Nuestro objetivo es representar a modelos que buscan construir una 
+                carrera exitosa en la industria del contenido para adultos y brindarles 
+                el apoyo necesario para alcanzar sus metas. Nos enfocamos en trabajar 
+                con modelos <span className='font-semibold'>comprometidas, talentosas y apasionadas</span>, para ofrecerles un servicio integral.
               </p>
-              <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">No server? No problem.</h2>
-              <p className="mt-6">
-                Id orci tellus laoreet id ac. Dolor, aenean leo, ac etiam consequat in. Convallis arcu ipsum urna nibh.
-                Pharetra, euismod vitae interdum mauris enim, consequat vulputate nibh. Maecenas pellentesque id sed
-                tellus mauris, ultrices mauris. Tincidunt enim cursus ridiculus mi. Pellentesque nam sed nullam sed diam
-                turpis ipsum eu a sed convallis diam.
+              <h2 className="mt-8 text-3xl font-bold tracking-tight text-black">
+                • Nuestra prioridad es tu seguridad
+              </h2>
+              <p className="mt-4">
+                En OnlyFans, la <span className='font-semibold'>privacidad y la seguridad</span> son una prioridad. En Iconika, nos aseguramos de que nuestros modelos estén protegidos y de que sus cuentas sean gestionadas de manera profesional. Ofrecemos servicios de gestión de redes sociales y OnlyFans, así como asesoramiento para el crecimiento y la expansión de la actividad de nuestros modelos.
               </p>
             </div>
           </div>

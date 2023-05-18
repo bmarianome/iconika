@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: 'Icónika | Gestionamos tu carrera profesional',
+  title: 'Iconika | Gestionamos tu carrera profesional',
 }
 
 export default function RootLayout({
