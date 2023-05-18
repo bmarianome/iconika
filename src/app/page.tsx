@@ -8,8 +8,8 @@ function Home() {
   return (
     <div>
       <Hero />
-      <Content />
       <Stats />
+      <Content />
       <CTA />
       <Footer />
     </div>

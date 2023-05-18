@@ -9,9 +9,21 @@ export default function Hero() {
   return (
     <div className="h-[100svh] relative">
 
-      
-      
-      <div className="h-full lg:h-[calc(100%-48px)] relative">
+
+      {/* SVGS */}
+      <div className="absolute left-0 top-0 w-auto h-[14rem]">
+        <svg className="h-full w-auto" width="1353" height="1104" viewBox="0 0 1353 1104" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M-0.00012207 1103.5V0H1352.5C1278.5 133 1213.5 431 807.999 480.5C545.999 516.5 452.5 553.5 316.5 658C191.07 754.378 39.5 1067 -0.00012207 1103.5Z" fill="black" />
+        </svg>
+      </div>
+
+      <div className="absolute left-0 bottom-0 w-auto h-[24rem]">
+        <svg className="h-full w-auto" width="844" height="1135" viewBox="0 0 844 1135" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0V1135H843.5C831 1068 730 809.5 556.5 718.5C433.5 661 163 582 163 404.5C154 317 222.5 26.5 0 0Z" fill="black" />
+        </svg>
+      </div>
+
+      <div className="h-full lg:h-[calc(100%-0px)] relative">
         <div className="mx-auto max-w-7xl flex flex-col gap-8 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 h-full">
           <div className="px-6 h-max py-8 lg:col-span-7 lg:px-0 xl:col-span-6 lg:h-full flex items-center justify-center">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:mr-8">
