@@ -3,6 +3,7 @@ import Content from '~/components/Content';
 import Footer from '~/components/Footer';
 import Hero from '~/components/Hero';
 import Stats from '~/components/Stats';
+import Test from '~/components/Test';
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
       <Stats />
       <Content />
       <CTA />
+      {/* <Test /> */}
       <Footer />
     </div>
   );

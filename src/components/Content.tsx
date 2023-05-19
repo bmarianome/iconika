@@ -1,16 +1,17 @@
 import { CurrencyDollarIcon, VideoCameraIcon } from '@heroicons/react/20/solid'
 
-export default function Content() {
+export default function   Content() {
   return (
-    <div className="relative isolate overflow-hidden px-6 py-24 sm:pb-0 sm:pt-24 lg:overflow-visible lg:px-0">
+    <div className="relative isolate overflow-hidden px-6 py-8 sm:pb-0 sm:pt-24 lg:overflow-visible lg:px-0">
 
-      <div className="absolute left-0 top-0 w-auto h-[14.5rem] z-10">
+      <div className="absolute left-0 top-0 w-auto h-[10%] xl:h-[15%] z-10 hidden lg:inline-block">
         <svg className="h-full w-auto" width="1353" height="1104" viewBox="0 0 1353 1104" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M-0.00012207 1103.5V0H1352.5C1278.5 133 1213.5 431 807.999 480.5C545.999 516.5 452.5 553.5 316.5 658C191.07 754.378 39.5 1067 -0.00012207 1103.5Z" fill="black" />
         </svg>
       </div>
 
-      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-6">
+      <div className="mx-auto lg:pl-8 grid max-w-2xl grid-cols-1 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-6">
+        
         <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
             <div className="lg:max-w-lg">
@@ -26,19 +27,21 @@ export default function Content() {
             </div>
           </div>
         </div>
-        <div className="-ml-12 -mt-12 px-12 lg:sticky lg:top-16 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-          <div className="relative w-[48rem] max-w-none bg-gray-900 ring-1 ring-gray-400/10 sm:w-[62rem] aspect-video rounded-3xl overflow-hidden">
+        
+        <div className="mt-8 ml-auto lg:-mt-12 lg:sticky lg:top-16 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden w-full">
+          <div className="relative w-[125%] max-w-none bg-gray-900 ring-1 ring-gray-400/10 aspect-video rounded-2xl overflow-hidden">
             <video src="/content/vid3.mp4" className="w-full h-full object-cover" autoPlay playsInline muted loop></video>
           </div>
         </div>
-        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+        
+        <div className="mt-8 lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
             <div className="max-w-xl text-base leading-7 text-gray-900 lg:max-w-xl">
 
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900">
                 • Nuestros servicios
               </h2>
-              <ul role="list" className="mt-8 space-y-8 text-gray-900">
+              <ul role="list" className="mt-8 space-y-4 sm:space-y-8 text-gray-900">
                 <li className="flex gap-x-3">
                   <div className="h-max w-max">
                     <svg className="mt-1 -ml-1 h-9 w-9  text-gray-900" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -65,14 +68,14 @@ export default function Content() {
                 <li className="flex gap-x-3">
                   <CurrencyDollarIcon className="mt-1 h-8 w-8 flex-none " aria-hidden="true" />
                   <span>
-                    <strong className="font-semibold text-gray-900">Gestión de cartera y pagos. </strong>
+                    <strong className="font-semibold text-gray-900">Gestión de cartera & pagos. </strong>
                     <br />
                     Servicios de gestión financiera y asesoramiento para ayudar a nuestros modelos a mantener sus finanzas en orden y maximizar sus ingresos.
                   </span>
                 </li>
               </ul>
 
-              <h2 className="mt-8 text-3xl font-bold tracking-tight text-black">
+              <h2 className="mt-8 text-2xl sm:text-3xl font-bold tracking-tight text-gray-950">
                 • Del estudio a la cima
               </h2>
               <p className="mt-4">
@@ -83,7 +86,7 @@ export default function Content() {
                 el apoyo necesario para alcanzar sus metas. Nos enfocamos en trabajar 
                 con modelos <span className='font-semibold'>comprometidas, talentosas y apasionadas</span>, para ofrecerles un servicio integral.
               </p>
-              <h2 className="mt-8 text-3xl font-bold tracking-tight text-black">
+              <h2 className="mt-8 text-2xl sm:text-3xl font-bold tracking-tight text-gray-950">
                 • Nuestra prioridad es tu seguridad
               </h2>
               <p className="mt-4">

@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .parrafo-1 {
+    @apply text-base leading-7 text-gray-600 sm:text-lg sm:leading-8;
+  }
+}
+
+@layer components {
+  .btn-1 {
+    @apply bg-white text-gray-900 px-10 py-4 rounded-md text-xl font-semibold shadow-xl shadow-gray-800;
+  }
+
+}

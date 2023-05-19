@@ -11,7 +11,14 @@ const stats = [
 export default function Stats() {
   return (
     <div className="relative">
-      <div className="relative h-96 w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-1/2 ">
+
+
+      <div className="relative h-72 sm:h-96 w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-1/2 ">
+        <div className="absolute right-0 top-full w-[20%] h-auto lg:hidden -scale-100">
+          <svg className="w-full h-auto" width="844" height="1135" viewBox="0 0 844 1135" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0V1135H843.5C831 1068 730 809.5 556.5 718.5C433.5 661 163 582 163 404.5C154 317 222.5 26.5 0 0Z" fill="black" />
+          </svg>
+        </div>
         <Image
           fill
           className="object-cover lg:rounded-r-3xl"
@@ -20,20 +27,25 @@ export default function Stats() {
         />
       </div>
       <div className="mx-auto grid lg:grid-cols-2">
-        <div className="px-6 pb-24 pt-16 sm:pb-32 sm:pt-20 lg:col-start-2 lg:px-8 lg:pt-32">
-          <div className="mx-auto max-w-2xl lg:ml-16 lg:max-w-xl">
-            <h2 className="text-base font-semibold leading-8 text-black">
+        <div className="px-6 py-8 sm:pb-24 sm:pt-20 lg:col-start-2 lg:px-8 lg:pt-24">
+          <div className="mx-auto max-w-2xl lg:mx-0 lg:ml-12 lg:max-w-xl">
+            <h2 className="text-base font-semibold leading-8 text-gray-950">
               Sobre Iconika
             </h2>
             <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
               Gestión de modelos emergentes{" "}
               <br />
-              <span className="mt-6 inline-block text-3xl sm:text-3xl">• Top #1 de Latinoamérica</span>
+              <span className="mt-6 inline-block text-2xl sm:text-3xl">
+                • Top #1 de Latinoamérica
+              </span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Nuestro objetivo es proporcionar a nuestros modelos las herramientas y la asistencia necesarias para potenciar su carrera en la industria del contenido para adultos, al tiempo que les ayudamos a crear contenido de alta calidad y a construir una comunidad de seguidores leales.
+              Nuestro objetivo es proporcionar a nuestros modelos las herramientas y
+              la asistencia necesarias para <span className="font-bold">potenciar su carrera</span> en la industria del
+              contenido para adultos, al tiempo que les ayudamos a crear contenido de
+              alta calidad y a construir una comunidad de <span className="font-bold">seguidores leales</span>.
             </p>
-            <dl className="mt-16 grid max-w-xl grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 xl:mt-16">
+            <dl className="mt-8 grid max-w-xl grid-cols-2 gap-8 sm:mt-20 sm:grid-cols-2 xl:mt-16">
               {stats.map((stat) => (
                 <div key={stat.id} className="flex flex-col gap-y-3 border-l border-gray-900/10 pl-6">
                   <dt className="text-sm leading-6 text-gray-600">{stat.name}</dt>
