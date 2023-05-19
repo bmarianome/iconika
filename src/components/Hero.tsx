@@ -1,4 +1,5 @@
 import pic2 from "../../public/hero/pic2.jpg"
+import pic1 from "public/cta/pic1.jpg"
 import Image from "next/image";
 import logoNegro from 'public/logo-negro.png'
 
@@ -32,7 +33,7 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="h-full lg:h-[calc(100%-0px)] relative">
+      <div className="h-full lg:h-[calc(100%-4rem)] relative">
         <div className="mx-auto max-w-7xl flex flex-col gap-8 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 h-full">
           <div className="px-6 h-max py-8 lg:col-span-6 lg:px-0 xl:col-span-6 lg:h-full flex items-center justify-center">
             <div className="mx-auto max-w-2xl lg:ml-8">
@@ -73,8 +74,8 @@ export default function Hero() {
           <div className="hidden lg:inline-block h-full relative lg:col-span-6 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
             <Image
               fill
-              className="lg:rounded-bl-[33%] w-full object-cover lg:aspect-auto lg:h-full object-[-75px] sm:object-center lg:object-[-150px]"
-              src={pic2}
+              className="lg:rounded-bl-[33%] w-full object-cover lg:aspect-auto lg:h-full object-[-75px] sm:object-center"
+              src={pic1}
               alt=""
             />
           </div>

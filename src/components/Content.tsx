@@ -1,6 +1,6 @@
 import { CurrencyDollarIcon, VideoCameraIcon } from '@heroicons/react/20/solid'
 
-export default function   Content() {
+export default function Content() {
   return (
     <div className="relative isolate overflow-hidden px-6 py-8 sm:pb-0 sm:pt-24 lg:overflow-visible lg:px-0">
 

@@ -1,5 +1,8 @@
 import Image from "next/image"
 import pic1 from "public/cta/pic1.jpg"
+import pic2 from "../../public/hero/pic2.jpg"
+import pic3 from "../../public/hero/pic3.jpg"
+
 
 const stats = [
   { id: 1, name: 'Creadores de contenido', value: '1.000+' },
@@ -19,12 +22,22 @@ export default function Stats() {
             <path d="M0 0V1135H843.5C831 1068 730 809.5 556.5 718.5C433.5 661 163 582 163 404.5C154 317 222.5 26.5 0 0Z" fill="black" />
           </svg>
         </div>
-        <Image
-          fill
-          className="object-cover lg:rounded-r-3xl"
-          src={pic1}
-          alt=""
-        />
+        <div className="lg:hidden">
+          <Image
+            fill
+            className="object-cover lg:rounded-r-3xl"
+            src={pic1}
+            alt=""
+          />
+        </div>
+        <div className="hidden lg:inline-block">
+          <Image
+            fill
+            className="object-cover lg:rounded-r-3xl"
+            src={pic2}
+            alt=""
+          />
+        </div>
       </div>
       <div className="mx-auto grid lg:grid-cols-2">
         <div className="px-6 py-8 sm:pb-24 sm:pt-20 lg:col-start-2 lg:px-8 lg:pt-24">
