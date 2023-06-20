@@ -1,16 +1,20 @@
 "use client"
 import { Disclosure } from "@headlessui/react";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/20/solid";
-import Link from "next/link";
-
 
 export default function FAQ() {
   return (
-    <div className="relative" id="FAQ">
+    <div className="relative w-full" id="FAQ">
 
-      <div className="absolute left-0 bottom-0 w-[10%] h-auto hidden lg:inline-block">
-        <svg className="w-full h-auto" width="844" height="1135" viewBox="0 0 844 1135" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div className="absolute -scale-x-100 lg:scale-x-100 lg:right-auto right-0 lg:left-0 bottom-[calc(100%-1px)] lg:bottom-[calc(-1px)] h-auto w-[25%] lg:w-auto lg:h-[10rem] xl:h-[17%] hidden lg:inline-block">
+        <svg className="h-auto w-full lg:h-full lg:w-auto" width="844" height="1135" viewBox="0 0 844 1135" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 0V1135H843.5C831 1068 730 809.5 556.5 718.5C433.5 661 163 582 163 404.5C154 317 222.5 26.5 0 0Z" fill="black" />
+        </svg>
+      </div>
+
+      <div className="absolute right-0 bottom-[calc(100%-1px)] lg:bottom-[calc(-1px)] h-auto w-[15%] lg:w-auto lg:h-[6rem] xl:h-[17%] -scale-100 hidden lg:inline-block">
+        <svg className="h-auto w-full lg:h-full lg:w-auto" width="1353" height="1104" viewBox="0 0 1353 1104" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M-0.00012207 1103.5V0H1352.5C1278.5 133 1213.5 431 807.999 480.5C545.999 516.5 452.5 553.5 316.5 658C191.07 754.378 39.5 1067 -0.00012207 1103.5Z" fill="black" />
         </svg>
       </div>
 

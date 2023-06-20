@@ -1,4 +1,3 @@
-import pic2 from "../../public/hero/pic2.jpg"
 import pic1 from "public/cta/pic1.jpg"
 import Image from "next/image";
 import logoNegro from 'public/logo-negro.png'

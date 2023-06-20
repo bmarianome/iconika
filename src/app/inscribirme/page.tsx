@@ -1,4 +1,4 @@
-import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/solid'
+import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import FAQ from '~/components/FAQ'
 
@@ -7,31 +7,15 @@ export default function Inscribirme() {
     <div className='bg-[#fafafa]'>
       <div className="relative isolate ">
 
-        {/* SVGS */}
         <div className="absolute left-0 top-0 w-[10%] h-auto hidden lg:inline-block">
           <svg className="w-full h-auto" width="1353" height="1104" viewBox="0 0 1353 1104" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M-0.00012207 1103.5V0H1352.5C1278.5 133 1213.5 431 807.999 480.5C545.999 516.5 452.5 553.5 316.5 658C191.07 754.378 39.5 1067 -0.00012207 1103.5Z" fill="black" />
           </svg>
         </div>
 
-
-
-        {/* MOBILE */}
-        {/* <div className="absolute right-0 top-0 w-[20%] h-auto lg:hidden -scale-100">
-        <svg className="w-full h-auto" width="844" height="1135" viewBox="0 0 844 1135" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 0V1135H843.5C831 1068 730 809.5 556.5 718.5C433.5 661 163 582 163 404.5C154 317 222.5 26.5 0 0Z" fill="black" />
-        </svg>
-      </div>
-
-      <div className="absolute right-0 bottom-0 w-[20%] h-auto -scale-100 lg:hidden">
-        <svg className="w-full h-auto" width="1353" height="1104" viewBox="0 0 1353 1104" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-0.00012207 1103.5V0H1352.5C1278.5 133 1213.5 431 807.999 480.5C545.999 516.5 452.5 553.5 316.5 658C191.07 754.378 39.5 1067 -0.00012207 1103.5Z" fill="black" />
-        </svg>
-      </div> */}
-
         <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 ">
 
-          <div className="relative px-6 pb-8 pt-24 sm:pt-32 lg:static lg:px-8 lg:pt-48 lg:pb-40">
+          <div className="relative px-6 pb-8 pt-24 sm:pt-32 lg:static lg:px-8 lg:pt-40 xl:pt-48 lg:pb-40">
 
             <div className="absolute right-0 top-0 w-[20%] h-auto lg:hidden -scale-100">
               <svg className="w-full h-auto" width="844" height="1135" viewBox="0 0 844 1135" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,10 +79,12 @@ export default function Inscribirme() {
 
           </div>
 
-          <div className="px-6 pb-24 pt-8 sm:pb-32 lg:px-8 lg:pt-48 lg:pb-40 relative">
-            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl lg:hidden">
-              • Formulario de Inscripción
-            </h1>
+          <div className="px-6 pb-24 pt-8 sm:pb-32 lg:px-8 lg:pt-40 xl:pt-48 lg:pb-40 relative">
+            <div className="mx-auto max-w-xl">
+              <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl lg:hidden">
+                • Formulario de Inscripción
+              </h1>
+            </div>
             <form className='mt-8'>
               <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
