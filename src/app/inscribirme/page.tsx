@@ -1,6 +1,7 @@
-import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/solid'
+import { EnvelopeIcon, PhoneIcon, PhotoIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import FAQ from '~/components/FAQ'
+import logoBlancoFrase from 'public/logo-blanco-frase.png'
 
 export default function Inscribirme() {
   return (
@@ -13,7 +14,7 @@ export default function Inscribirme() {
           </svg>
         </div>
 
-        <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 ">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
 
           <div className="relative px-6 pb-8 pt-24 sm:pt-32 lg:static lg:px-8 lg:pt-40 xl:pt-48 lg:pb-40">
 
@@ -23,7 +24,7 @@ export default function Inscribirme() {
               </svg>
             </div>
 
-            <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
+            <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg lg:sticky top-20">
 
               <Link
                 href='/'
@@ -75,22 +76,28 @@ export default function Inscribirme() {
               >
                 Volver al Inicio
               </Link>
+
             </div>
 
           </div>
 
           <div className="px-6 pb-24 pt-8 sm:pb-32 lg:px-8 lg:pt-40 xl:pt-48 lg:pb-40 relative">
-            <div className="mx-auto max-w-xl">
-              <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl lg:hidden">
+            <div className="mx-auto lg:mr-0 lg:max-w-lg">
+              <h1 className="font-bold tracking-tight text-gray-900 text-2xl sm:text-3xl">
                 • Formulario de Inscripción
               </h1>
+              <p className="mt-6 text-base leading-7 text-gray-600">
+                De resultar seleccionada, un gestor de cuenta te contactará, y
+                te explicará las condiciones. Y si estás de acuerdo, firmar un contrato.
+              </p>
             </div>
             <form className='mt-8'>
               <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
-                <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-                  <div>
+                <div className="flex flex-col lg:grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+
+                  <div className='col-span-2'>
                     <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
-                      First name
+                      Nombre completo
                     </label>
                     <div className="mt-1">
                       <input
@@ -102,37 +109,10 @@ export default function Inscribirme() {
                       />
                     </div>
                   </div>
+
                   <div>
-                    <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900">
-                      Last name
-                    </label>
-                    <div className="mt-1">
-                      <input
-                        type="text"
-                        name="last-name"
-                        id="last-name"
-                        autoComplete="family-name"
-                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
-                      />
-                    </div>
-                  </div>
-                  <div className="sm:col-span-2">
-                    <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
-                      Email
-                    </label>
-                    <div className="mt-1">
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        autoComplete="email"
-                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
-                      />
-                    </div>
-                  </div>
-                  <div className="sm:col-span-2">
                     <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-gray-900">
-                      Phone number
+                      Teléfono (whatsapp)
                     </label>
                     <div className="mt-1">
                       <input
@@ -144,14 +124,116 @@ export default function Inscribirme() {
                       />
                     </div>
                   </div>
+
+                  <div>
+                    <label htmlFor="horas-disponibles" className="block text-sm font-semibold leading-6 text-gray-900">
+                      Horas al día disponibles
+                    </label>
+                    <div className="mt-1">
+                      <input
+                        type="text"
+                        name="horas-disponibles"
+                        id="horas-disponibles"
+                        autoComplete="family-name"
+                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                  </div>
+
                   <div className="sm:col-span-2">
                     <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
-                      Message
+                      Tienes alguna cuenta de redes sociales bien establecida? (Tiktok, IG, etc)
+                      Cuántos seguidores tienes en estas cuentas sociales?
                     </label>
                     <div className="mt-1">
                       <textarea
                         name="message"
                         id="message"
+                        rows={4}
+                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
+                        defaultValue={''}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="relative flex items-start lg:col-span-2">
+                    <div className="flex h-6 items-center">
+                      <input
+                        id="checkbox-input-1"
+                        aria-describedby="checkbox-input-1"
+                        name="checkbox-input-1"
+                        type="checkbox"
+                        className="h-4 w-4 rounded border-gray-300 text-black focus:ring-black"
+                      />
+                    </div>
+                    <div className="ml-3 text-sm leading-6">
+                      <label htmlFor="checkbox-input-1" className="font-medium text-gray-900">
+                        Puedo copiar los TikToks/videos/públicaciones que me envíen
+                        para que podamos usarlos para el marketing?
+                      </label>
+                    </div>
+                  </div>
+
+                  <div className="relative flex items-start lg:col-span-2">
+                    <div className="flex h-6 items-center">
+                      <input
+                        id="checkbox-input-2"
+                        aria-describedby="checkbox-input-2"
+                        name="checkbox-input-2"
+                        type="checkbox"
+                        className="h-4 w-4 rounded border-gray-300 text-black focus:ring-black"
+                      />
+                    </div>
+                    <div className="ml-3 text-sm leading-6">
+                      <label htmlFor="checkbox-input-2" className="font-medium text-gray-900">
+                        Estoy dispuesto/a a hacer contenido para adultos/sexual
+                      </label>
+                    </div>
+                  </div>
+
+                  <div className="relative flex items-start lg:col-span-2">
+                    <div className="flex h-6 items-center">
+                      <input
+                        id="checkbox-input-3"
+                        aria-describedby="checkbox-input-3"
+                        name="checkbox-input-3"
+                        type="checkbox"
+                        className="h-4 w-4 rounded border-gray-300 text-black focus:ring-black"
+                      />
+                    </div>
+                    <div className="ml-3 text-sm leading-6">
+                      <label htmlFor="checkbox-input-3" className="font-medium text-gray-900">
+                        Tengo más de 18 años
+                      </label>
+                    </div>
+                  </div>
+
+                  <div className="col-span-full">
+                    <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
+                      Envía aquí tus mejores fotos sexy (cuerpo completo), no desnudos.
+                    </label>
+                    <label htmlFor='file-upload' className="mt-2 flex justify-center rounded-lg hover:border-black hover:cursor-pointer hover:bg-white border border-dashed border-gray-900/25 px-6 py-10">
+                      <div className="text-center">
+                        <PhotoIcon className="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" />
+                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                          <span className="relative rounded-md font-semibold text-black"
+                          >
+                            <span>Click aquí para seleccionar fotos</span>
+                            <input id="file-upload" name="file-upload" type="file" className="sr-only" />
+                          </span>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+
+                  <div className="sm:col-span-2">
+                    <label htmlFor="mensaje" className="block text-sm font-semibold leading-6 text-gray-900">
+                      Añade aquí lo que desees
+                    </label>
+                    <div className="mt-1">
+                      <textarea
+                        name="mensaje"
+                        id="mensaje"
                         rows={4}
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
                         defaultValue={''}
@@ -179,3 +261,4 @@ export default function Inscribirme() {
     </div>
   )
 }
+
