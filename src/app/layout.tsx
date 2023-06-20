@@ -1,7 +1,8 @@
+import Footer from '~/components/Footer';
 import '../styles/globals.css'
 
 import { Inter, Montserrat } from 'next/font/google';
- 
+
 const inter = Inter({
   variable: '--font-inter',
   subsets: ["latin"],
@@ -26,6 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} bg-[#fafafa]`}>
         {children}
+        <Footer />
       </body>
     </html>
   )

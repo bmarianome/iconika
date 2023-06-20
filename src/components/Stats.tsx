@@ -1,13 +1,9 @@
 import Image from "next/image"
 import pic1 from "public/cta/pic1.jpg"
 import pic2 from "../../public/hero/pic2.jpg"
-import pic3 from "../../public/hero/pic3.jpg"
-
 
 const stats = [
-  { id: 1, name: 'Creadores de contenido', value: '1.000+' },
   { id: 2, name: 'Top mundial de modelos', value: '1%' },
-  { id: 4, name: 'Ganacias de nuestras modelos', value: '7 cifras' },
   { id: 3, name: 'Carreras profesionalizadas', value: '100%' },
 ]
 
@@ -55,7 +51,7 @@ export default function Stats() {
             <p className="mt-6 text-lg leading-8 text-gray-600">
               Nuestro objetivo es proporcionar a nuestros modelos las herramientas y
               la asistencia necesarias para <span className="font-bold">potenciar su carrera</span> en la industria del
-              contenido para adultos, al tiempo que les ayudamos a crear contenido de
+              contenido para OnlyFans, al tiempo que les ayudamos a crear contenido de
               alta calidad y a construir una comunidad de <span className="font-bold">seguidores leales</span>.
             </p>
             <dl className="mt-8 grid max-w-xl grid-cols-2 gap-8 sm:mt-20 sm:grid-cols-2 xl:mt-16">

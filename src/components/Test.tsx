@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import pic2 from "public/cta/pic2.jpg"
 
 export default function Example() {
@@ -29,15 +30,15 @@ export default function Example() {
               Conocé Iconika.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-              <a
+              <Link
                 href="#"
                 className="btn-1 w-full max-w-sm sm:w-max"
               >
                 Inscribirme ahora
-              </a>
-              <a href="#" className="text-sm font-semibold leading-6 text-white sm:inline hidden">
+              </Link>
+              <Link href="#" className="text-sm font-semibold leading-6 text-white sm:inline hidden">
                 Ver casos de éxito <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import pic2 from "../../public/hero/pic2.jpg"
 import pic1 from "public/cta/pic1.jpg"
 import Image from "next/image";
 import logoNegro from 'public/logo-negro.png'
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -45,9 +46,9 @@ export default function Hero() {
               <div className="hidden sm:mt-12 sm:flex">
                 <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                   <span className="font-bold">Iconika</span> es la agencia de modelos emergentes <span className="font-bold">N°1</span> de Latinoamérica.{' '}
-                  <a href="#" className="whitespace-nowrap font-semibold ">
+                  <Link href="/inscribirme" className="whitespace-nowrap font-semibold ">
                     <span className="absolute inset-0" aria-hidden="true" />
-                  </a>
+                  </Link>
                 </div>
               </div>
               <h1 className="mt-8 text-3xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl">
@@ -56,18 +57,18 @@ export default function Hero() {
               <p className="mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600">
                 <span className="font-bold">Iconika</span> es una agencia de representación
                 de <span className="font-bold">modelos emergentes</span> en
-                la industria del contenido para adultos.
+                la industria del contenido para OnlyFans.
               </p>
               <div className="mt-6 flex items-center gap-x-6">
-                <a
-                  href="#"
+                <Link
+                  href="/inscribirme"
                   className="rounded-md bg-gray-950 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
-                  Conocé nuestro estudio
-                </a>
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                  Contactanos <span aria-hidden="true">→</span>
-                </a>
+                  Ver casos de éxito
+                </Link>
+                <Link href="/inscribirme" className="text-sm font-semibold leading-6 text-gray-900">
+                  Inscribite <span aria-hidden="true">→</span>
+                </Link>
               </div>
             </div>
           </div>

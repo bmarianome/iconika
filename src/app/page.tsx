@@ -13,7 +13,6 @@ function Home() {
       <Content />
       <CTA />
       {/* <Test /> */}
-      <Footer />
     </div>
   );
 }
