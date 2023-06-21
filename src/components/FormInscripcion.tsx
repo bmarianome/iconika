@@ -41,7 +41,7 @@ async function enviarInscripcion(e: React.FormEvent<HTMLFormElement>) {
 
   optimizedFiles.forEach(file => formData.append('file-upload', file, file.name))
 
-  const res = await fetch("/enviar-inscripcion", {
+  const res = await fetch("/api/enviar-inscripcion", {
     method: "POST",
     body: formData,
   })

@@ -2,7 +2,7 @@ import { type NextRequest, NextResponse } from "next/server";
 import { EmailTemplate } from "~/components/email-template";
 import { Resend } from "resend";
 import { env } from "~/env.mjs";
-import { inscripcionSchema } from "../utils/inscripcion";
+import { inscripcionSchema } from "../../utils/inscripcion";
 
 const resend = new Resend(env.RESEND_API_KEY);
 
