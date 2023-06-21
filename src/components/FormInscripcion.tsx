@@ -49,7 +49,6 @@ async function enviarInscripcion(e: React.FormEvent<HTMLFormElement>) {
   if (res.ok) {
     alert("Gracias por inscribirte, nos pondremos en contacto contigo");
   } else {
-    console.log(await res.json())
     alert("Hubo un error al enviar tu inscripción, por favor inténtalo de nuevo");
   }
 }
