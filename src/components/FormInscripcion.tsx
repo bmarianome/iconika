@@ -1,7 +1,6 @@
 "use client"
 import { PhotoIcon } from "@heroicons/react/20/solid";
 import imageCompression from "browser-image-compression";
-import { z } from "zod";
 import { inscripcionSchema } from "~/app/utils/inscripcion";
 
 async function enviarInscripcion(e: React.FormEvent<HTMLFormElement>) {
@@ -45,13 +44,12 @@ async function enviarInscripcion(e: React.FormEvent<HTMLFormElement>) {
   const res = await fetch("/enviar-inscripcion", {
     method: "POST",
     body: formData,
-  });
+  }).then(() => alert("Gracias por inscribirte, nos pondremos en contacto contigo"))
+  .catch((error) => {
+    console.log(error)
+    alert("Hubo un error al enviar tu inscripción, por favor inténtalo de nuevo")
+  })
 
-  if (res.ok) {
-    alert("Gracias por inscribirte, nos pondremos en contacto contigo");
-  } else {
-    alert("Hubo un error al enviar tu inscripción, por favor inténtalo de nuevo");
-  }
 }
 
 function FormInscripcion() {
