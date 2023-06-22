@@ -36,12 +36,12 @@ export const metadata = {
   openGraph: {
     title: 'Iconika',
     description: 'Gestionamos tu carrera profesional en OnlyFans.',
-    url: 'https://iconika.com.ar',
+    url: 'https://iconika.vercel.app',
     siteName: 'Iconika',
     images: [
       {
         // !
-        url: 'https://iconika.com.ar/social-media-card.png',
+        url: 'https://iconika.vercel.app/social-media-card.png',
         width: 1200,
         height: 630,
       },
@@ -56,7 +56,7 @@ export const metadata = {
     description: 'Gestionamos tu carrera profesional en OnlyFans.',
     images: {
       // !
-      url: 'https://iconika.com.ar/social-media-card.png'
+      url: 'https://iconika.vercel.app/social-media-card.png'
     },
   },
 
