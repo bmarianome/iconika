@@ -35,7 +35,7 @@ async function enviarInscripcion(e: React.FormEvent<HTMLFormElement>) {
   formData.delete('file-upload')
 
   const optimizedFiles = await Promise.all(files.map(file => imageCompression(file, {
-    maxSizeMB: .5,
+    maxSizeMB: 2,
     maxWidthOrHeight: 1920,
   })))
 

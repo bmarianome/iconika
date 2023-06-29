@@ -92,12 +92,11 @@ export default function Inscribirme() {
               </p>
             </div>
             <FormInscripcion />
-            
+
           </div>
 
         </div>
 
-        {/* <div className="h-40 w-full bg-white"></div> */}
       </div>
       <FAQ />
     </div>
