@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
 
       await resend.sendEmail({
         from: "onboarding@resend.dev",
-        to: "benitezmarianito@gmail.com",
+        to: env.EMAIL_RECEIVER,
         subject: "Nueva solicitud para inscripcion desde el sitio web",
         react: EmailTemplate({
           nombre: isValid.data.data["full-name"],
