@@ -50,8 +50,6 @@ export default function Example() {
   return (
     <footer className="bg-gray-950 relative" aria-labelledby="footer-heading">
 
-
-      
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>

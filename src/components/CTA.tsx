@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image"
-import pic2 from "public/cta/pic2.jpg"
+import pic2 from "public/cta/couple-2.jpeg"
 
 export default function Example() {
   return (
@@ -42,7 +42,7 @@ export default function Example() {
                 Inscribirme ahora
               </Link>
               <Link href="/inscribirme" className="text-sm font-semibold leading-6 text-white sm:inline hidden">
-                Ver casos de éxito <span aria-hidden="true">→</span>
+                Contactanos <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
@@ -52,7 +52,7 @@ export default function Example() {
                 fill
                 className="object-cover object-center rounded-l-2xl lg:rounded-l-none lg:rounded-tl-2xl"
                 src={pic2}
-                alt="App screenshot"
+                alt="Modelos en Iconika"
               />
             </div>
           </div>

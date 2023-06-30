@@ -2,6 +2,7 @@ import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import FAQ from '~/components/FAQ'
 import FormInscripcion from '~/components/FormInscripcion'
+import Loader from '~/components/Loader'
 
 export default function Inscribirme() {
   return (
@@ -81,7 +82,8 @@ export default function Inscribirme() {
 
           </div>
 
-          <div className="px-6 pb-24 pt-8 sm:pb-32 lg:px-8 lg:pt-40 xl:pt-48 lg:pb-40 relative">
+          <div className="px-6 pb-24 pt-8 sm:pb-32 lg:px-8 lg:pt-40 xl:pt-48 lg:pb-40">
+            
             <div className="mx-auto lg:mr-0 lg:max-w-lg">
               <h1 className="font-bold tracking-tight text-gray-900 text-2xl sm:text-3xl">
                 • Formulario de Inscripción
@@ -92,6 +94,8 @@ export default function Inscribirme() {
               </p>
             </div>
             <FormInscripcion />
+            <Loader />
+
 
           </div>
 

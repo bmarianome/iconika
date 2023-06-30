@@ -74,7 +74,7 @@ export default function Content() {
 
         <div className="mt-8 ml-auto lg:-mt-12 lg:sticky lg:top-16 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden w-full">
           <div className="relative w-[125%] max-w-none bg-gray-900 ring-1 ring-gray-400/10 aspect-video rounded-2xl overflow-hidden">
-            <video src="/content/vid3.mp4" className="w-full h-full object-cover" autoPlay playsInline muted loop></video>
+            <video src="/content/vid.mp4" className="w-full h-full object-cover" autoPlay playsInline muted loop></video>
           </div>
         </div>
 

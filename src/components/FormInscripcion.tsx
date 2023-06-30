@@ -1,61 +1,84 @@
 "use client"
-import { PhotoIcon } from "@heroicons/react/20/solid";
 import imageCompression from "browser-image-compression";
 import { inscripcionSchema } from "~/app/utils/inscripcion";
+import { PhotoIcon } from "@heroicons/react/20/solid";
+import { useLoader } from "~/app/utils/useLoader";
+import { useState } from "react";
 
-async function enviarInscripcion(e: React.FormEvent<HTMLFormElement>) {
-  e.preventDefault();
-
-  const formData = new FormData(e.currentTarget);
-
-  const inscripcionData = {
-    data: {
-      'full-name': formData.get('full-name'),
-      'phone-number': formData.get('phone-number'),
-      'horas-disponibles': formData.get('horas-disponibles'),
-      'copiar-videos': formData.get('copiar-videos'),
-      'disposicion-contenido-adultos': formData.get('disposicion-contenido-adultos'),
-      'mayor-edad': formData.get('mayor-edad'),
-      'accounts': formData.get('accounts'),
-      'message': formData.get('message'),
-    },
-    files: formData.getAll('file-upload')
-  }
-
-  const isValid = inscripcionSchema.safeParse(inscripcionData);
-  if (!isValid.success) {
-    const errores = isValid.error.issues.map(issue => issue.message)
-    return alert(`\n• Errores: 
-      \n${errores.join('\n')}
-    `)
-  }
-
-  const files = isValid.data.files
-  
-  formData.delete('file-upload')
-
-  const optimizedFiles = await Promise.all(files.map(file => imageCompression(file, {
-    maxSizeMB: 2,
-    maxWidthOrHeight: 1920,
-  })))
-
-  optimizedFiles.forEach(file => formData.append('file-upload', file, file.name))
-
-  const res = await fetch("/api/enviar-inscripcion", {
-    method: "POST",
-    body: formData,
-  })
-
-  if (res.ok) {
-    alert("Gracias por inscribirte, nos pondremos en contacto contigo");
-  } else {
-    alert("Hubo un error al enviar tu inscripción, por favor inténtalo de nuevo");
-  }
+const getAmountOfFiles = () => {
+  const input = document.getElementById('file-upload') as HTMLInputElement
+  return input.files?.length || 0
 }
 
 function FormInscripcion() {
+
+  const { loading, setLoading, setSuccess, finish } = useLoader()
+  const [amountOfFiles, setAmountOfFiles] = useState(0)
+
+  async function enviarInscripcion(e: React.FormEvent<HTMLFormElement>) {
+
+    if (loading) return
+    e.preventDefault();
+
+
+    const formData = new FormData(e.currentTarget);
+
+    const inscripcionData = {
+      data: {
+        'full-name': formData.get('full-name'),
+        'phone-number': formData.get('phone-number'),
+        'horas-disponibles': formData.get('horas-disponibles'),
+        'copiar-videos': formData.get('copiar-videos'),
+        'disposicion-contenido-adultos': formData.get('disposicion-contenido-adultos'),
+        'mayor-edad': formData.get('mayor-edad'),
+        'accounts': formData.get('accounts'),
+        'message': formData.get('message'),
+      },
+      files: formData.getAll('file-upload')
+    }
+
+    const isValid = inscripcionSchema.safeParse(inscripcionData);
+    if (!isValid.success) {
+      const errores = isValid.error.issues.map(issue => issue.message)
+      return alert(`\n• Errores: 
+        \n${errores.join('\n')}
+      `)
+    }
+
+    setLoading(true)
+
+    const files = isValid.data.files
+
+    formData.delete('file-upload')
+
+    const optimizedFiles = await Promise.all(files.map(file => imageCompression(file, {
+      maxSizeMB: 2,
+      maxWidthOrHeight: 1920,
+    }))).catch(err => {
+      console.log(err)
+      setLoading(false)
+      throw alert("Hubo un error al enviar tu inscripción, por favor inténtalo de nuevo");
+    })
+
+    optimizedFiles.forEach(file => formData.append('file-upload', file, file.name))
+
+    const res = await fetch("/api/enviar-inscripcion", {
+      method: "POST",
+      body: formData,
+    })
+
+    if (res.ok) {
+      setSuccess(true);
+      (document.querySelector('.fromInscripcion') as HTMLFormElement).reset()
+    } else {
+      alert("Hubo un error al enviar tu inscripción, por favor inténtalo de nuevo");
+      setLoading(false)
+      setTimeout(() => finish(), 1000);
+    }
+  }
+
   return (
-    <form className='mt-8' onSubmit={(e) => void enviarInscripcion(e)}>
+    <form className='fromInscripcion mt-8' onSubmit={(e) => void enviarInscripcion(e)}>
       <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
         <div className="flex flex-col lg:grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
 
@@ -95,7 +118,7 @@ function FormInscripcion() {
             </label>
             <div className="mt-1">
               <input
-                type="text"
+                type="number"
                 name="horas-disponibles"
                 id="horas-disponibles"
                 autoComplete="family-name"
@@ -182,8 +205,15 @@ function FormInscripcion() {
                 <div className="mt-4 flex text-sm leading-6 text-gray-600">
                   <span className="relative rounded-md font-semibold text-black"
                   >
-                    <span>Click aquí para seleccionar fotos</span>
-                    <input multiple id="file-upload" name="file-upload" type="file" className="sr-only" />
+                    <span>
+                      Click aquí para seleccionar fotos
+                      {" "}
+                      {(amountOfFiles > 0) && <>({amountOfFiles})</>}
+                    </span>
+                    <input 
+                      onChange={() => setAmountOfFiles(getAmountOfFiles())} 
+                      multiple id="file-upload" name="file-upload" type="file" className="sr-only" 
+                    />
                   </span>
                 </div>
               </div>

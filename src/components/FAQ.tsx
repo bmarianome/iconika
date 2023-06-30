@@ -4,7 +4,7 @@ import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/20/solid";
 
 export default function FAQ() {
   return (
-    <div className="relative w-full" id="FAQ">
+    <div className="relative z-0 w-full" id="FAQ">
 
       <div className="absolute -scale-x-100 lg:scale-x-100 lg:right-auto right-0 lg:left-0 bottom-[calc(100%-1px)] lg:bottom-[calc(-1px)] h-auto w-[25%] lg:w-auto lg:h-[10rem] xl:h-[17%] hidden lg:inline-block">
         <svg className="h-auto w-full lg:h-full lg:w-auto" width="844" height="1135" viewBox="0 0 844 1135" fill="none" xmlns="http://www.w3.org/2000/svg">
