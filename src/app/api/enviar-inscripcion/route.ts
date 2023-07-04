@@ -26,7 +26,6 @@ export async function POST(request: NextRequest) {
       files: formData.getAll("file-upload"),
     };
 
-    inscripcionSchema.safeParse(inscripcionData);
     const isValid = inscripcionSchema.safeParse(inscripcionData);
     if (isValid.success) {
       

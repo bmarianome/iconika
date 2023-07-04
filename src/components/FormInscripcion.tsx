@@ -15,6 +15,8 @@ function FormInscripcion() {
   const { loading, setLoading, setSuccess, finish } = useLoader()
   const [amountOfFiles, setAmountOfFiles] = useState(0)
 
+  const [files, setFiles] = useState()
+
   async function enviarInscripcion(e: React.FormEvent<HTMLFormElement>) {
 
     if (loading) return

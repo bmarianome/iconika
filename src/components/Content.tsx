@@ -14,12 +14,12 @@ const servicios = [
       </svg>
     </div>,
   },
-  {
-    name: 'Estudio profesional',
-    description:
-      'Obtené contenido de calidad para tu OnlyFans y atraé más subscriptores.',
-    icon: CurrencyDollarIcon,
-  },
+  // {
+  //   name: 'Estudio profesional',
+  //   description:
+  //     'Obtené contenido de calidad para tu OnlyFans y atraé más subscriptores.',
+  //   icon: CurrencyDollarIcon,
+  // },
   {
     name: 'Gestión de cartera & pagos',
     description:
@@ -33,7 +33,7 @@ const servicios = [
   },
   {
     name: 'Grupos de Apoyo',
-    description: 
+    description:
       'Formarás parte de la comunidad de modelos de Iconika.',
     icon: UserGroupIcon,
   },
@@ -48,8 +48,14 @@ export default function Content() {
   return (
     <div className="relative isolate overflow-hidden px-6 py-8 sm:pb-0 sm:pt-24 lg:overflow-visible lg:px-0">
 
-      <div className="absolute left-0 top-0 w-auto h-[10%] xl:h-[15%] z-10 hidden lg:inline-block">
+      {/* <div className="absolute left-0 top-0 w-auto h-[10%] z-10 hidden lg:inline-block">
         <svg className="h-full w-auto" width="1353" height="1104" viewBox="0 0 1353 1104" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M-0.00012207 1103.5V0H1352.5C1278.5 133 1213.5 431 807.999 480.5C545.999 516.5 452.5 553.5 316.5 658C191.07 754.378 39.5 1067 -0.00012207 1103.5Z" fill="black" />
+        </svg>
+      </div> */}
+
+      <div className="absolute left-0 top-0 w-[10%] h-auto hidden lg:inline-block">
+        <svg className="w-full h-auto" width="1353" height="1104" viewBox="0 0 1353 1104" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M-0.00012207 1103.5V0H1352.5C1278.5 133 1213.5 431 807.999 480.5C545.999 516.5 452.5 553.5 316.5 658C191.07 754.378 39.5 1067 -0.00012207 1103.5Z" fill="black" />
         </svg>
       </div>
@@ -63,7 +69,7 @@ export default function Content() {
                 Servicios para tu carrera
               </p>
               <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-                Un estudio profesional a tu disposición
+                Una agencia profesional a tu disposición
               </h1>
               <p className="mt-6 text-xl leading-8 text-gray-900">
                 <span className="font-bold">Iconika</span> ofrece un servicio <span className="font-bold">integral</span> para que puedas dedicarte a lo que más te gusta: <span className="font-bold">crear contenido</span>
