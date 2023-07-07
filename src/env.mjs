@@ -10,6 +10,7 @@ export const env = createEnv({
     NODE_ENV: z.enum(["development", "test", "production"]),
     RESEND_API_KEY: z.string().min(1),
     EMAIL_RECEIVER: z.string().min(1),
+    EMAIL_SENDER: z.string().min(1),
   },
 
   /**
@@ -29,6 +30,7 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     EMAIL_RECEIVER: process.env.EMAIL_RECEIVER,
+    EMAIL_SENDER: process.env.EMAIL_SENDER,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
 });

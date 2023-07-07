@@ -34,12 +34,12 @@ export async function POST(request: NextRequest) {
           const arrayBuffer = await file.arrayBuffer();
           const buffer = Buffer.from(arrayBuffer);
 
-          return { filename: file.name, content: buffer.toString("base64") };
+          return { filename: file.name, content: buffer };
         })
       );
 
       await resend.sendEmail({
-        from: "onboarding@resend.dev",
+        from: `Iconika inscripciones <${env.EMAIL_SENDER}>`,
         to: env.EMAIL_RECEIVER,
         subject: "Nueva solicitud para inscripcion desde el sitio web",
         react: EmailTemplate({
