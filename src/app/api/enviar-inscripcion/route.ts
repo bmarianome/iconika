@@ -4,7 +4,7 @@ import { type InscripcionData } from "../../utils/inscripcion";
 
 export async function POST(request: NextRequest) {
   try {
-    const { data, files } = (await request.json()) as InscripcionData;
+    const { data: inscripcionData, files } = await request.json() as InscripcionData;
 
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -20,23 +20,23 @@ export async function POST(request: NextRequest) {
           <h1>Nueva solicitud para inscripcion desde el sitio web</h1>
           <p>
             <strong>• Nombre:</strong> 
-            ${data["full-name"]}
+            ${inscripcionData["full-name"]}
           </p>
           <p>
             <strong>• Telefono:</strong> 
-            ${data["phone-number"]}
+            ${inscripcionData["phone-number"]}
           </p>
           <p>
             <strong>• Horasdisponibles:</strong> 
-            ${data["horas-disponibles"]}
+            ${inscripcionData["horas-disponibles"]}
           </p>
           <p>
             <strong>• Cuentas:</strong> 
-            ${data["accounts"]}
+            ${inscripcionData["accounts"]}
           </p>
           <p>
             <strong>• Mensaje:</strong> 
-            ${data["message"]}
+            ${inscripcionData["message"]}
           </p>
         `,
         attachments: files,
@@ -44,11 +44,10 @@ export async function POST(request: NextRequest) {
     });
 
     if (res.ok) {
-      return NextResponse.json({ ok: true }, { status: 200 });
+      const data = await res.json() as object;
+      return NextResponse.json(data);
     } else {
-      const data = (await res.json()) as object;
-      console.log(data);
-      return NextResponse.json({ ok: false, error: data }, { status: 500 });
+      return NextResponse.json({ ok: false }, { status: 500 });
     }
   } catch (err) {
     console.log(err);

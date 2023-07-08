@@ -77,6 +77,10 @@ function FormInscripcion() {
       (document.querySelector('.formInscripcion') as HTMLFormElement).reset()
     } else {
       alert("Hubo un error al enviar tu inscripción, por favor inténtalo de nuevo");
+
+      const error = await res.json() as object;
+      console.log(error)
+      
       setLoading(false)
       setTimeout(() => finish(), 1000);
     }
