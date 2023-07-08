@@ -46,11 +46,7 @@ function FormInscripcion() {
 
     setLoading(true)
 
-    const files = isValid.data.files
-
-    formData.delete('file-upload')
-
-    const optimizedFiles = await Promise.all(files.map(file => imageCompression(file, {
+    const optimizedFiles = await Promise.all(isValid.data.files.map(file => imageCompression(file, {
       maxSizeMB: 1,
       maxWidthOrHeight: 1920,
     }))).catch(err => {
@@ -59,11 +55,21 @@ function FormInscripcion() {
       throw alert("Hubo un error al enviar tu inscripción, por favor inténtalo de nuevo");
     })
 
-    optimizedFiles.forEach(file => formData.append('file-upload', file, file.name))
+    const filesToBuffer = await Promise.all(
+      optimizedFiles.map(async (file) => {
+        const arrayBuffer = await file.arrayBuffer();
+        const buffer = Buffer.from(arrayBuffer);
+
+        return { filename: file.name, content: buffer };
+      })
+    );
 
     const res = await fetch("/api/enviar-inscripcion", {
       method: "POST",
-      body: formData,
+      body: JSON.stringify({
+        data: inscripcionData.data,
+        files: filesToBuffer,
+      }),
     })
 
     if (res.ok) {
