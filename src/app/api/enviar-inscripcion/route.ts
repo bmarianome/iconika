@@ -2,6 +2,8 @@ import { type NextRequest, NextResponse } from "next/server";
 import { env } from "~/env.mjs";
 import { type InscripcionData } from "../../utils/inscripcion";
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: NextRequest) {
   try {
     const { data: inscripcionData, files } = await request.json() as InscripcionData;
@@ -45,7 +47,7 @@ export async function POST(request: NextRequest) {
 
     if (res.ok) {
       const data = await res.json() as object;
-      return NextResponse.json(data);
+      return NextResponse.json({ ok: true, data }, { status: 200 });
     } else {
       return NextResponse.json({ ok: false }, { status: 500 });
     }

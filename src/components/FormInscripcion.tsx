@@ -67,7 +67,7 @@ function FormInscripcion() {
     const res = await fetch("/api/enviar-inscripcion", {
       method: "POST",
       body: JSON.stringify({
-        data: inscripcionData.data,
+        data: isValid.data.data,
         files: filesToBuffer,
       }),
     })
