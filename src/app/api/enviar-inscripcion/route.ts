@@ -2,9 +2,6 @@ import { type NextRequest, NextResponse } from "next/server";
 import { env } from "~/env.mjs";
 import { type InscripcionData } from "../../utils/inscripcion";
 
-export const runtime = "edge";
-export const dynamic = "force-dynamic";
-
 export async function POST(request: NextRequest) {
   try {
     const { data, files } = (await request.json()) as InscripcionData;
