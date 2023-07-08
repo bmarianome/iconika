@@ -4,9 +4,7 @@ import { Resend } from "resend";
 import { env } from "~/env.mjs";
 import { inscripcionSchema } from "../../utils/inscripcion";
 
-export const config = {
-  runtime: 'edge',
-}
+export const runtime = 'edge'
 
 const resend = new Resend(env.RESEND_API_KEY);
 
