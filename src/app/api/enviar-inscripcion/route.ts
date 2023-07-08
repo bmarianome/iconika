@@ -1,12 +1,9 @@
 import { type NextRequest, NextResponse } from "next/server";
-import { EmailTemplate } from "~/components/email-template"; 
-import { Resend } from "resend";
 import { env } from "~/env.mjs";
 import { inscripcionSchema } from "../../utils/inscripcion";
 
-export const runtime = 'edge'
-
-const resend = new Resend(env.RESEND_API_KEY);
+export const runtime = "edge";
+export const dynamic = "force-dynamic";
 
 export async function POST(request: NextRequest) {
   try {
@@ -30,7 +27,6 @@ export async function POST(request: NextRequest) {
 
     const isValid = inscripcionSchema.safeParse(inscripcionData);
     if (isValid.success) {
-      
       const filesToSend = await Promise.all(
         isValid.data.files.map(async (file) => {
           const arrayBuffer = await file.arrayBuffer();
@@ -40,22 +36,47 @@ export async function POST(request: NextRequest) {
         })
       );
 
-      await resend.sendEmail({
-        from: `Iconika inscripciones <${env.EMAIL_SENDER}>`,
-        to: env.EMAIL_RECEIVER,
-        subject: "Nueva solicitud para inscripcion desde el sitio web",
-        react: EmailTemplate({
-          nombre: isValid.data.data["full-name"],
-          telefono: isValid.data.data["phone-number"],
-          horasDisponibles: isValid.data.data["horas-disponibles"],
-          accounts: isValid.data.data["accounts"],
-          message: isValid.data.data["message"],
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${env.RESEND_API_KEY}`,
+        },
+        body: JSON.stringify({
+          from: `Iconika inscripciones <${env.EMAIL_SENDER}>`,
+          to: env.EMAIL_RECEIVER,
+          subject: "Nueva solicitud para inscripcion desde el sitio web",
+          html: `
+            <h1>Nueva solicitud para inscripcion desde el sitio web</h1>
+            <p>
+              <strong>• Nombre</strong>: 
+              ${isValid.data.data["full-name"]}
+            </p>
+            <p>
+              <strong>• Telefono</strong>: 
+              ${isValid.data.data["phone-number"]}
+            </p>
+            <p>
+              <strong>• Horas</strong> 
+              disponibles: ${isValid.data.data["horas-disponibles"]}
+            </p>
+            <p>
+              <strong>• Cuentas</strong>: 
+              ${isValid.data.data["accounts"]}
+            </p>
+            <p>
+              <strong>• Mensaje</strong>: 
+              ${isValid.data.data["message"]}
+            </p>
+          `,
+          attachments: filesToSend,
         }),
-        attachments: filesToSend,
       });
-    }
 
-    return NextResponse.json({ ok: true }, { status: 200 });
+      if (res.ok) {
+        return NextResponse.json({ ok: true }, { status: 200 });
+      }
+    }
   } catch (err) {
     console.log(err);
     return NextResponse.json({ ok: false, error: err }, { status: 500 });
