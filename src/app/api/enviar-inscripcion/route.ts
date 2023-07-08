@@ -75,6 +75,10 @@ export async function POST(request: NextRequest) {
 
       if (res.ok) {
         return NextResponse.json({ ok: true }, { status: 200 });
+      } else {
+        const data = await res.json() as object;
+        console.log(data)
+        return NextResponse.json({ ok: false, error: data }, { status: 500 });
       }
     }
   } catch (err) {

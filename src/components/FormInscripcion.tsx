@@ -15,13 +15,10 @@ function FormInscripcion() {
   const { loading, setLoading, setSuccess, finish } = useLoader()
   const [amountOfFiles, setAmountOfFiles] = useState(0)
 
-  const [files, setFiles] = useState()
-
   async function enviarInscripcion(e: React.FormEvent<HTMLFormElement>) {
 
     if (loading) return
     e.preventDefault();
-
 
     const formData = new FormData(e.currentTarget);
 
@@ -71,7 +68,7 @@ function FormInscripcion() {
 
     if (res.ok) {
       setSuccess(true);
-      (document.querySelector('.fromInscripcion') as HTMLFormElement).reset()
+      (document.querySelector('.formInscripcion') as HTMLFormElement).reset()
     } else {
       alert("Hubo un error al enviar tu inscripción, por favor inténtalo de nuevo");
       setLoading(false)
@@ -80,7 +77,7 @@ function FormInscripcion() {
   }
 
   return (
-    <form className='fromInscripcion mt-8' onSubmit={(e) => void enviarInscripcion(e)}>
+    <form className='formInscripcion mt-8' onSubmit={(e) => void enviarInscripcion(e)}>
       <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
         <div className="flex flex-col lg:grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
 
