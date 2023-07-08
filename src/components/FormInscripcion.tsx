@@ -54,7 +54,7 @@ function FormInscripcion() {
     formData.delete('file-upload')
 
     const optimizedFiles = await Promise.all(files.map(file => imageCompression(file, {
-      maxSizeMB: 2,
+      maxSizeMB: 1,
       maxWidthOrHeight: 1920,
     }))).catch(err => {
       console.log(err)
