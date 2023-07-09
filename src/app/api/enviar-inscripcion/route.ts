@@ -3,6 +3,7 @@ import { env } from "~/env.mjs";
 import { type InscripcionData } from "../../utils/inscripcion";
 
 export const dynamic = 'force-dynamic';
+export const runtime = 'edge'
 
 export async function POST(request: NextRequest) {
   try {
@@ -44,11 +45,14 @@ export async function POST(request: NextRequest) {
         attachments: files,
       }),
     });
-
+    
+    const data = await res.json() as object;
+    
     if (res.ok) {
-      const data = await res.json() as object;
+      console.log(data)
       return NextResponse.json({ ok: true, data }, { status: 200 });
     } else {
+      console.log(data)
       return NextResponse.json({ ok: false }, { status: 500 });
     }
   } catch (err) {
