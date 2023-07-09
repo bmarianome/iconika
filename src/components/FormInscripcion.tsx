@@ -46,13 +46,17 @@ function FormInscripcion() {
 
     setLoading(true)
 
-    const optimizedFiles = await Promise.all(isValid.data.files.map(file => imageCompression(file, {
-      maxSizeMB: 1,
-      maxWidthOrHeight: 1920,
-    }))).catch(err => {
+    const optimizedFiles = await Promise.all(isValid.data.files.map(file => {
+      // IF THE FILE IS BIGGER THAN 3.9MB, COMPRESS IT
+      // if (file.size < 3900000) return file
+      return imageCompression(file, {
+        maxSizeMB: 1,
+        maxWidthOrHeight: 1920,
+      })
+    })).catch(err => {
       console.log(err)
       setLoading(false)
-      throw alert("Hubo un error al enviar tu inscripción, por favor inténtalo de nuevo");
+      throw alert("Hubo un error al enviar tu inscripción, por favor inténtalo de nuevo (Error al optimizar imágenes)");
     })
 
     const filesToBuffer = await Promise.all(
