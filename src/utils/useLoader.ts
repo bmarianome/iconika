@@ -3,8 +3,8 @@ import { create } from "zustand";
 interface LoaderStore {
   loading: boolean
   setLoading: (loading: boolean) => void,
-  word: 'Subiendo fotos' | 'Enviando datos'
-  setWord: (word: 'Subiendo fotos' | 'Enviando datos') => void
+  word: string
+  setWord: (word: string) => void
   success: boolean
   setSuccess: (success: boolean) => void,
   finish: () => void
@@ -12,13 +12,9 @@ interface LoaderStore {
 
 export const useLoader = create<LoaderStore>()((set) => ({
   loading: false,
-  word: 'Enviando datos',
+  word: 'Cargando...',
   setLoading: (loading) => set((state) => {
-
     window.document.body.style.overflow = loading ? "hidden" : "auto"
-
-    setTimeout(() => state.setWord("Subiendo fotos"), 2000)
-    
     return { ...state, loading }
   }),
   setWord: (word) => set({ word }),

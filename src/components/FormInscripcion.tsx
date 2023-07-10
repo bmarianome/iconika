@@ -1,19 +1,43 @@
 "use client"
 import imageCompression from "browser-image-compression";
-import { inscripcionSchema } from "~/app/utils/inscripcion";
+import { inscripcionSchema } from "~/utils/inscripcion";
 import { PhotoIcon } from "@heroicons/react/20/solid";
-import { useLoader } from "~/app/utils/useLoader";
+import { useLoader } from "~/utils/useLoader";
 import { useState } from "react";
+
+import { useUploadThing } from "~/utils/uploadthing";
 
 const getAmountOfFiles = () => {
   const input = document.getElementById('file-upload') as HTMLInputElement
   return input.files?.length || 0
 }
 
+const optimizeFiles = async (files: File[]) => {
+  return await Promise.all(files.map(file => imageCompression(file, {
+    maxSizeMB: .4,
+    maxWidthOrHeight: 768,
+  })))
+}
+
 function FormInscripcion() {
 
-  const { loading, setLoading, setSuccess, finish } = useLoader()
+  const { loading, setLoading, setSuccess, finish, setWord } = useLoader()
   const [amountOfFiles, setAmountOfFiles] = useState(0)
+
+  const { startUpload } = useUploadThing("imageUploader", {
+    onUploadProgress(progress) {
+      setWord(`Subiendo fotos... ${progress}%`)
+    },
+    onClientUploadComplete: () => {
+      setWord(`Enviando datos...`)
+    },
+    onUploadError: (err) => {
+      setLoading(false)
+      alert("Hubo un error al enviar tu inscripción, por favor inténtalo de nuevo");
+      console.log(err)
+      setTimeout(() => finish(), 1000);
+    },
+  });
 
   async function enviarInscripcion(e: React.FormEvent<HTMLFormElement>) {
 
@@ -25,6 +49,7 @@ function FormInscripcion() {
     const inscripcionData = {
       data: {
         'full-name': formData.get('full-name'),
+        'country': formData.get('country'),
         'phone-number': formData.get('phone-number'),
         'horas-disponibles': formData.get('horas-disponibles'),
         'copiar-videos': formData.get('copiar-videos'),
@@ -36,9 +61,9 @@ function FormInscripcion() {
       files: formData.getAll('file-upload')
     }
 
-    const isValid = inscripcionSchema.safeParse(inscripcionData);
-    if (!isValid.success) {
-      const errores = isValid.error.issues.map(issue => issue.message)
+    const inscripcion = inscripcionSchema.safeParse(inscripcionData);
+    if (!inscripcion.success) {
+      const errores = inscripcion.error.issues.map(issue => issue.message)
       return alert(`\n• Errores: 
         \n${errores.join('\n')}
       `)
@@ -46,43 +71,36 @@ function FormInscripcion() {
 
     setLoading(true)
 
-    const optimizedFiles = await Promise.all(isValid.data.files.map(file => imageCompression(file, {
-      maxSizeMB: 1,
-      maxWidthOrHeight: 1920,
-    }))).catch(err => {
+    try {
+      const optimizedFiles = await optimizeFiles(inscripcion.data.files)
+      
+      const filesUploaded = await startUpload(optimizedFiles)
+  
+      if (!filesUploaded || filesUploaded.length === 0) {
+        throw new Error('No se pudieron subir los archivos')
+      }
+  
+      const sendMail = await fetch("/api/enviar-inscripcion", {
+        method: "POST",
+        body: JSON.stringify({
+          data: inscripcion.data.data,
+          filesUrls: filesUploaded.map(file => file.fileUrl),
+        }),
+      })
+
+      if (sendMail.ok) {
+        setSuccess(true);
+        setAmountOfFiles(0);
+        (document.querySelector('.formInscripcion') as HTMLFormElement).reset()
+      } else {
+        throw new Error('No se pudo enviar el correo')
+      }
+    }
+
+    catch (err) {
       console.log(err)
       setLoading(false)
-      throw alert("Hubo un error al enviar tu inscripción, por favor inténtalo de nuevo");
-    })
-
-    const filesToBuffer = await Promise.all(
-      optimizedFiles.map(async (file) => {
-        const arrayBuffer = await file.arrayBuffer();
-        const buffer = Buffer.from(arrayBuffer);
-
-        return { filename: file.name, content: buffer };
-      })
-    );
-
-    const res = await fetch("/api/enviar-inscripcion", {
-      method: "POST",
-      body: JSON.stringify({
-        data: isValid.data.data,
-        files: filesToBuffer,
-      }),
-    })
-
-    if (res.ok) {
-      setSuccess(true);
-      (document.querySelector('.formInscripcion') as HTMLFormElement).reset()
-    } else {
       alert("Hubo un error al enviar tu inscripción, por favor inténtalo de nuevo");
-
-      const error = await res.json() as object;
-      console.log(error)
-      
-      setLoading(false)
-      setTimeout(() => finish(), 1000);
     }
   }
 
@@ -91,7 +109,7 @@ function FormInscripcion() {
       <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
         <div className="flex flex-col lg:grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
 
-          <div className='col-span-2'>
+          <div>
             <label htmlFor="full-name" className="block text-sm font-semibold leading-6 text-gray-900">
               Nombre completo
             </label>
@@ -101,6 +119,21 @@ function FormInscripcion() {
                 name="full-name"
                 id="full-name"
                 autoComplete="given-name"
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="country" className="block text-sm font-semibold leading-6 text-gray-900">
+              País de residencia
+            </label>
+            <div className="mt-1">
+              <input
+                type="text"
+                name="country"
+                id="country"
+                autoComplete="country"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
               />
             </div>

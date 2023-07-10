@@ -11,6 +11,8 @@ export const env = createEnv({
     RESEND_API_KEY: z.string().min(1),
     EMAIL_RECEIVER: z.string().min(1),
     EMAIL_SENDER: z.string().min(1),
+    UPLOADTHING_SECRET: z.string().min(1),
+    UPLOADTHING_APP_ID: z.string().min(1),
   },
 
   /**
@@ -31,6 +33,8 @@ export const env = createEnv({
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     EMAIL_RECEIVER: process.env.EMAIL_RECEIVER,
     EMAIL_SENDER: process.env.EMAIL_SENDER,
+    UPLOADTHING_SECRET: process.env.UPLOADTHING_SECRET,
+    UPLOADTHING_APP_ID: process.env.UPLOADTHING_APP_ID,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
 });

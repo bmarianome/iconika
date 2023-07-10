@@ -3,7 +3,7 @@ import { CheckIcon } from "@heroicons/react/20/solid";
 import logoNegro from 'public/logo-negro.png'
 import Image from "next/image";
 import { Dialog, Transition } from "@headlessui/react";
-import { useLoader } from "~/app/utils/useLoader";
+import { useLoader } from "~/utils/useLoader";
 import { Fragment } from "react";
 
 function Loader() {

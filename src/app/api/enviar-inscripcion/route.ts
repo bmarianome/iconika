@@ -1,21 +1,14 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { env } from "~/env.mjs";
-import { type InscripcionData } from "../../utils/inscripcion";
-
-export const dynamic = "force-dynamic";
-
-export const config = {
-  api: {
-    bodyParser: {
-      sizeLimit: "12mb", // Set desired value here
-    },
-  },
-};
+import { type InscripcionData } from "../../../utils/inscripcion";
 
 export async function POST(request: NextRequest) {
   try {
-    const { data: inscripcionData, files } =
-      (await request.json()) as InscripcionData;
+    const { data: inscripcionData, filesUrls } = 
+    await request.json() as {
+      data: InscripcionData["data"];
+      filesUrls: string[];
+    };
 
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -30,36 +23,36 @@ export async function POST(request: NextRequest) {
         html: `
           <h1>Nueva solicitud para inscripcion desde el sitio web</h1>
           <p>
-            <strong>• Nombre:</strong> 
-            ${inscripcionData["full-name"]}
+            <strong>• Nombre:</strong>
+            ${inscripcionData["full-name"]}, de ${inscripcionData["country"]}
           </p>
           <p>
-            <strong>• Telefono:</strong> 
+            <strong>• Telefono:</strong>
             ${inscripcionData["phone-number"]}
           </p>
           <p>
-            <strong>• Horasdisponibles:</strong> 
+            <strong>• Horas disponibles:</strong>
             ${inscripcionData["horas-disponibles"]}
           </p>
           <p>
-            <strong>• Cuentas:</strong> 
+            <strong>• Cuentas:</strong>
             ${inscripcionData["accounts"]}
           </p>
           <p>
-            <strong>• Mensaje:</strong> 
+            <strong>• Mensaje:</strong>
             ${inscripcionData["message"]}
           </p>
         `,
-        attachments: files,
+        attachments: filesUrls.map((url) => ({
+          path: url,
+        })),
       }),
     });
 
     if (res.ok) {
-      const data = (await res.json()) as object;
-      return NextResponse.json({ ok: true, data }, { status: 200 });
-    } else {
-      return NextResponse.json({ ok: false }, { status: 500 });
+      return NextResponse.json({ ok: true }, { status: 200 });
     }
+
   } catch (err) {
     console.log(err);
     return NextResponse.json({ ok: false, error: err }, { status: 500 });

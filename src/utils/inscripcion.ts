@@ -5,6 +5,9 @@ export const inscripcionSchema = z.object({
     'full-name': z.string().min(1, {
       message: "Debes ingresar tu nombre completo.",
     }),
+    "country": z.string().min(1, {
+      message: "Debes ingresar tu país.",
+    }),
     'phone-number': z.string().min(1, {
       message: "Debes ingresar tu número de teléfono.",
     }),
