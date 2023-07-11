@@ -48,12 +48,6 @@ export default function Content() {
   return (
     <div className="relative isolate overflow-hidden px-6 py-8 sm:pb-0 sm:pt-24 lg:overflow-visible lg:px-0">
 
-      {/* <div className="absolute left-0 top-0 w-auto h-[10%] z-10 hidden lg:inline-block">
-        <svg className="h-full w-auto" width="1353" height="1104" viewBox="0 0 1353 1104" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-0.00012207 1103.5V0H1352.5C1278.5 133 1213.5 431 807.999 480.5C545.999 516.5 452.5 553.5 316.5 658C191.07 754.378 39.5 1067 -0.00012207 1103.5Z" fill="black" />
-        </svg>
-      </div> */}
-
       <div className="absolute left-0 top-0 w-[10%] h-auto hidden lg:inline-block">
         <svg className="w-full h-auto" width="1353" height="1104" viewBox="0 0 1353 1104" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M-0.00012207 1103.5V0H1352.5C1278.5 133 1213.5 431 807.999 480.5C545.999 516.5 452.5 553.5 316.5 658C191.07 754.378 39.5 1067 -0.00012207 1103.5Z" fill="black" />
