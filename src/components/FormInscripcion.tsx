@@ -84,7 +84,7 @@ function FormInscripcion() {
         method: "POST",
         body: JSON.stringify({
           data: inscripcion.data.data,
-          filesUrls: filesUploaded.map(file => file.fileUrl),
+          filesUrls: filesUploaded,
         }),
       })
 

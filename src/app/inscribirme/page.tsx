@@ -55,7 +55,7 @@ export default function Inscribirme() {
                   </dt>
                   <dd>
                     <a className="hover:text-gray-900" href="tel:+5493513951237">
-                      +1 (555) 234-5678
+                      +54 (351) 395 1237
                     </a>
                   </dd>
                 </div>
@@ -65,8 +65,8 @@ export default function Inscribirme() {
                     <EnvelopeIcon className="h-7 w-6 text-black" aria-hidden="true" />
                   </dt>
                   <dd>
-                    <a className="hover:text-gray-900" href="mailto:gregomdominguez99@gmail.com">
-                      gregomdominguez99@gmail.com
+                    <a className="hover:text-gray-900" href="mailto:administracion@iconika.com.ar">
+                      administracion@iconika.com.ar
                     </a>
                   </dd>
                 </div>
@@ -83,7 +83,7 @@ export default function Inscribirme() {
           </div>
 
           <div className="px-6 pb-24 pt-8 sm:pb-32 lg:px-8 lg:pt-40 xl:pt-48 lg:pb-40">
-            
+
             <div className="mx-auto lg:mr-0 lg:max-w-lg">
               <h1 className="font-bold tracking-tight text-gray-900 text-2xl sm:text-3xl">
                 • Formulario de Inscripción

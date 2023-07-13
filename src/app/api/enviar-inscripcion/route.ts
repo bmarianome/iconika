@@ -2,12 +2,25 @@ import { type NextRequest, NextResponse } from "next/server";
 import { env } from "~/env.mjs";
 import { type InscripcionData } from "../../../utils/inscripcion";
 
+const getFilesList = (filesUrls: {
+  fileUrl: string;
+  fileKey: string;
+}[]) => filesUrls.map(({ fileUrl, fileKey }) => `
+  <li>
+    <a href="${fileUrl}" target="_blank">${fileKey}</a>
+  </li>
+`).join("");
+
+
 export async function POST(request: NextRequest) {
   try {
     const { data: inscripcionData, filesUrls } = 
     await request.json() as {
       data: InscripcionData["data"];
-      filesUrls: string[];
+      filesUrls: {
+        fileUrl: string;
+        fileKey: string;
+    }[];
     };
 
     const res = await fetch("https://api.resend.com/emails", {
@@ -34,23 +47,34 @@ export async function POST(request: NextRequest) {
             <strong>• Horas disponibles:</strong>
             ${inscripcionData["horas-disponibles"]}
           </p>
-          <p>
-            <strong>• Cuentas:</strong>
-            ${inscripcionData["accounts"]}
-          </p>
-          <p>
-            <strong>• Mensaje:</strong>
-            ${inscripcionData["message"]}
-          </p>
+          ${inscripcionData["accounts"] &&
+            `<p>
+              <strong>• Cuentas:</strong>
+              ${inscripcionData["accounts"]}
+            </p>`
+          }
+          ${inscripcionData["message"] &&
+            `<p>
+              <strong>• Mensaje:</strong>
+              ${inscripcionData["message"]}
+            </p>`
+          }
+          <p><strong>• Archivos:</strong></p>
+          <ul>
+            ${getFilesList(filesUrls)}
+          </ul>
         `,
-        attachments: filesUrls.map((url) => ({
-          path: url,
-        })),
       }),
     });
 
     if (res.ok) {
       return NextResponse.json({ ok: true }, { status: 200 });
+    } else {
+
+      const data = await res.json() as object;
+      console.log(data)
+      
+      return NextResponse.json({ ok: false }, { status: 500 });
     }
 
   } catch (err) {
