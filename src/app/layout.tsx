@@ -73,7 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
 
         {/* INSTAGRAM FIXED BUTTON */}
-        <Link href='/' className="fixed hover:-translate-y-1 bottom-6 lg:bottom-12 right-6 lg:right-12 bg-black z-50 rounded-full p-3 group duration-200 shadow-2xl">
+        <Link href='https://www.instagram.com/iconika.agency' className="fixed hover:-translate-y-1 bottom-6 lg:bottom-12 right-6 lg:right-12 bg-black z-50 rounded-full p-3 group duration-200 shadow-2xl">
           <svg className='w-7 lg:w-8 h-7 lg:h-8 fill-[#fafafa] group-hover:scale-105 duration-200' fill="currentColor" viewBox="0 0 24 24">
             <path
               fillRule="evenodd"

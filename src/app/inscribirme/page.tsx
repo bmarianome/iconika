@@ -54,7 +54,7 @@ export default function Inscribirme() {
                     <PhoneIcon className="h-7 w-6 text-black" aria-hidden="true" />
                   </dt>
                   <dd>
-                    <a className="hover:text-gray-900" href="tel:+1 (555) 234-5678">
+                    <a className="hover:text-gray-900" href="tel:+5493513951237">
                       +1 (555) 234-5678
                     </a>
                   </dd>
@@ -65,8 +65,8 @@ export default function Inscribirme() {
                     <EnvelopeIcon className="h-7 w-6 text-black" aria-hidden="true" />
                   </dt>
                   <dd>
-                    <a className="hover:text-gray-900" href="mailto:hello@example.com">
-                      hello@example.com
+                    <a className="hover:text-gray-900" href="mailto:gregomdominguez99@gmail.com">
+                      gregomdominguez99@gmail.com
                     </a>
                   </dd>
                 </div>
