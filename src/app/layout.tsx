@@ -27,7 +27,7 @@ export const metadata = {
     },
     apple: [
       {
-        url: "/favicon.jng",
+        url: "/favicon.jpg",
         sizes: "64x64",
       }
     ],
