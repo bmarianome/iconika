@@ -72,10 +72,6 @@ const faqs = [
     answer: "La llamada de descubrimiento es una excelente oportunidad para programar con nuestro equipo y hacer todas las preguntas, conocer a un gerente de cuenta y ayudar a nuestro equipo a comprender mejor su cuenta antes de elaborar una propuesta para usted."
   },
   {
-    question: "¿Mantengo los derechos de mi contenido?",
-    answer: "Todos los derechos de contenido le pertenecen, no somos propietarios de ningún contenido proporcionado por usted."
-  },
-  {
     question: "¿Con qué tipo de creadores trabajas?",
     answer: "Nos enfocamos en cuentas pequeñas y grandes. Por lo general, no trabajamos con cuentas de inicio a menos que cuenten con un gran número de seguidores en las redes sociales. Sin embargo, si está comenzando, no dude en enviarnos su información, ya que nuestro equipo puede tener recomendaciones u otros recursos para usted."
   },
