@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <div className="lg:h-[100svh] relative">
+    <section className="lg:h-[100svh] relative">
 
       {/* SVGS */}
       <div className="absolute left-0 top-0 w-[10%] h-auto hidden lg:inline-block">
@@ -24,19 +24,19 @@ export default function Hero() {
       <div className="h-full lg:h-[calc(100%-4rem)] relative">
         <div className="mx-auto max-w-7xl flex flex-col gap-8 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 h-full">
           <div className="px-6 h-max py-8 lg:col-span-6 lg:px-0 xl:col-span-6 lg:h-full flex items-center justify-center">
-            <div className="mx-auto max-w-2xl lg:ml-8">
+            <article className="mx-auto max-w-2xl lg:ml-8">
               <Image
                 src={logoNegro}
                 className="w-56 sm:w-72"
                 alt="Iconika"
               />
               <div className="hidden sm:mt-12 sm:flex">
-                <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                <h3 className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                   <span className="font-bold">Iconika</span> es la agencia de modelos emergentes <span className="font-bold">N°1</span> de Latinoamérica.{' '}
                   <Link href="/inscribirme" className="whitespace-nowrap font-semibold ">
                     <span className="absolute inset-0" aria-hidden="true" />
                   </Link>
-                </div>
+                </h3>
               </div>
               <h1 className="mt-8 text-3xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl">
                 Gestión de carreras profesionales en OnlyFans
@@ -57,7 +57,7 @@ export default function Hero() {
                   Contactanos <span aria-hidden="true">→</span>
                 </Link>
               </div>
-            </div>
+            </article>
           </div>
           <div className="hidden lg:inline-block h-full relative lg:col-span-6 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
             <Image
@@ -69,6 +69,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

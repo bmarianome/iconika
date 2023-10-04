@@ -4,7 +4,7 @@ import pic2 from "public/cta/couple-2.jpeg"
 
 export default function Example() {
   return (
-    <div className="relative">
+    <section className="relative">
 
       <div className="absolute -scale-x-100 lg:scale-x-100 lg:right-auto right-0 lg:left-0 bottom-[calc(100%-1px)] lg:bottom-0 h-auto w-[25%] lg:w-auto lg:h-[10rem] xl:h-[25%] sm:hidden lg:inline-block">
         <svg className="h-auto w-full lg:h-full lg:w-auto" width="844" height="1135" viewBox="0 0 844 1135" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,6 +58,6 @@ export default function Example() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

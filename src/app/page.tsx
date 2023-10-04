@@ -5,12 +5,12 @@ import Stats from '~/components/Stats';
 
 function Home() {
   return (
-    <div>
+    <main>
       <Hero />
       <Stats />
       <Content />
       <CTA />
-    </div>
+    </main>
   );
 }
 

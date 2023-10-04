@@ -37,10 +37,10 @@ export default function Inscribirme() {
               <h1 className="text-base font-semibold leading-8 text-gray-950">
                 Inscripción
               </h1>
-              <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+              <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                 Iniciá tu carrera profesional{" "}
                 <br />
-              </h1>
+              </h2>
               <p className="mt-6 text-base leading-7 text-gray-600">
                 Tienes una pregunta diferente y no encuentras la respuesta que estás buscando?
                 Revisa nuestra sección de <Link href="/inscribirme#FAQ" className="font-bold hover:underline">
