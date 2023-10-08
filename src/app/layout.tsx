@@ -11,7 +11,8 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: 'Iconika | Gestionamos tu carrera profesional',
+  title: 'Iconika | Gestionamos tu carrera profesional en OnlyFans',
+  description: 'Transformá tu vida. Elevamos tu carrera profesional para que obtengas fans, tiempo y ganancias.',
   themeColor: '#000',
 
   metadataBase: new URL('https://iconika.com.ar'),
